@@ -1,14 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import LoaderApp from './components/commons/loader';
 import ModalApp from './modal';
 
 
 export default function App() {
   const [suma, setSuma ] = useState(0);
+  const [loading, setLoading ] = useState(false);
 
   const getSuma = () => {
+    setLoading(true);
     setSuma(suma+1);
+    setLoading(false);
   }
 
   return (
@@ -24,6 +28,9 @@ export default function App() {
       />
 
       <ModalApp />
+      
+        <LoaderApp /> 
+      
     </View>
   );
 }
